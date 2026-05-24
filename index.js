@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 
 const app = express();
 app.use(cors());
@@ -28,7 +28,7 @@ app.post('/users', async (req, res) => {
   const { name, email } = req.body;
   const { rows } = await pool.query(
     'INSERT INTO users (id, name, email) VALUES ($1, $2, $3) RETURNING *',
-    [uuidv4(), name, email]
+    [crypto.randomUUID(), name, email]
   );
   res.status(201).json(rows[0]);
 });
