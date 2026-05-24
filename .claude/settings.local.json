@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\dispo\\\\OneDrive\\\\Documentos\\\\Estevão\\\\Projetos Pessoais\\\\projeto-integrativa\" | Where-Object { $_.Name -ne \"node_modules\" } | Select-Object Name)"
+    ]
+  }
+}
